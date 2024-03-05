@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'second', component: SecondComponent },
   { path: 'third/:id', component: ThirdComponent },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '**', component: SecondComponent },
 ];
 
 @NgModule({
