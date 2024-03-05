@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { SecondComponent } from './components/second/second.component';
 import { ThirdComponent } from './components/third/third.component';
+import { ThirdAComponent } from './components/third-a/third-a.component';
+import { ThirdBComponent } from './components/third-b/third-b.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     SecondComponent,
-    ThirdComponent
+    ThirdComponent,
+    ThirdAComponent,
+    ThirdBComponent
   ],
   imports: [
     BrowserModule,
