@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-third',
@@ -7,12 +7,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './third.component.css',
 })
 export class ThirdComponent implements OnInit {
-  constructor(private router: ActivatedRoute) {}
+  constructor(private activeRoute: ActivatedRoute, private router: Router) {}
   id: string = '';
   ngOnInit(): void {
-    this.id = this.router.snapshot.params['id'];
-    // this.router.params.subscribe((value: any) => {
-    //   this.id = value;
-    // });
+    // this.id = this.activeRoute.snapshot.params['id'];
+    this.activeRoute.params.subscribe((value: any) => {
+      this.id = value['id'];
+    });
+  }
+
+  thirdA() {
+    this.router.navigate(['a'], { relativeTo: this.activeRoute });
   }
 }
