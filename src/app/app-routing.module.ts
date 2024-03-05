@@ -18,6 +18,11 @@ const routes: Routes = [
     component: ThirdComponent,
     children: thirdRouteChildren,
   },
+  {
+    path: 'fourth',
+    loadChildren: () =>
+      import('../app/lazy/lazy.module').then((m) => m.LazyModule),
+  },
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: '**', component: SecondComponent },
 ];
