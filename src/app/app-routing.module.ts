@@ -5,6 +5,7 @@ import { SecondComponent } from './components/second/second.component';
 import { ThirdAComponent } from './components/third-a/third-a.component';
 import { ThirdBComponent } from './components/third-b/third-b.component';
 import { ThirdComponent } from './components/third/third.component';
+import { dataResolver } from './helpers/data.resolver';
 
 const thirdRouteChildren: Routes = [
   { path: 'a', component: ThirdAComponent },
@@ -12,7 +13,11 @@ const thirdRouteChildren: Routes = [
 ];
 const routes: Routes = [
   { path: 'main', component: MainComponent },
-  { path: 'second', component: SecondComponent },
+  {
+    path: 'second',
+    component: SecondComponent,
+    resolve: { greetings: dataResolver },
+  },
   {
     path: 'third/:id',
     component: ThirdComponent,
